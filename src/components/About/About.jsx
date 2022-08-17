@@ -1,8 +1,17 @@
 import React from 'react'
 
+import wave from '../../assets/wave.png'
+
 const About = () => {
   return (
-    <div>About</div>
+    <section className='flex flex-col justify-center items-center'>
+      <img src={wave} alt='memoji saying hi' className='h-[50%] w-[50%]' />
+      <div>
+        <h2>About myself</h2>
+
+      </div>
+
+    </section>
   )
 }
 

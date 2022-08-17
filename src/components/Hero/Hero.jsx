@@ -8,8 +8,8 @@ const Hero = () => (
     <div>
       <p className="text-[40px]">👋🏼</p>
       <p className='font-thin sm:text-[20px]'>my name is Facu and I'm a</p>
-      <h1 className='font-bold text-[38px] ss:text-[50px] md:text-[70px] xl:text-[100px] m-1 tracking-tight duration-500 fullstack animate__animated animate__pulse'>Fullstack Developer</h1>
-      <h1 className='font-bold text-[38px] ss:text-[50px] md:text-[70px] xl:text-[100px] m-1 tracking-tight strokeme duration-500 hover:text-black animate__animated animate__pulse animate__delay-1s'>& UX/UI Designer</h1>
+      <h1 className='inline font-bold text-[38px] ss:text-[50px] md:text-[70px] xl:text-[100px] m-1 tracking-tight duration-500 fullstack animate__animated animate__pulse'>Fullstack Developer</h1>
+      <h1 className='inline font-bold text-[38px] ss:text-[50px] md:text-[70px] xl:text-[100px] m-1 tracking-tight strokeme duration-500 hover:text-black animate__animated animate__pulse animate__delay-1s'><br />& UX/UI Designer</h1>
       <p className='font-thin mt-3 sm:text-[20px]'>currently based in Mendoza, Argentina.</p>
       <div className='flex gap-3 justify-center mt-10 md:mt-3'>
         <Button className={'bg-black text-white'}><Link to={'projects'}>My projects</Link></Button>
