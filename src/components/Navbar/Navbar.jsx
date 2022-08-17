@@ -15,13 +15,15 @@ const Navbar = () => {
       <img src={Logo} alt='logo' className='h-[50px]' />
 
       {/* Desktop */}
-      <ul className='hidden sm:flex gap-5'>
+      <ul className='hidden sm:flex gap-5 items-center'>
         {navbar.map((n, i) => (
           <li className='hover:-translate-y-1 duration-300 font-thin'>
             <a className='' href={n.id}>{n.title}</a>
           </li>
         ))}
+        <Button className={'bg-black text-white'}><a href='mailto:facundo.perez.brizuela@gmail.com'>Contact Me</a></Button>
       </ul>
+
 
       {/* Mobile */}
       <div className='sm:hidden'>
@@ -33,6 +35,7 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
+
       </div>
 
     </nav>
