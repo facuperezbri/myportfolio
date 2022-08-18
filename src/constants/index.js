@@ -20,9 +20,3 @@ const navbar = [
 export {
   navbar
 }
-
-const about = [
-  {
-    info: "I'm a Fullstack developer, specialized in Frontend based in Mendoza, Argentina."
-  }
-]

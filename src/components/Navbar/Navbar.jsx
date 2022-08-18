@@ -11,8 +11,11 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false)
 
   return (
-    <nav className='sticky top-0 bg-white flex justify-between sm:justify-around px-3 sm:px-0 items-center mb-5 md:mb-0 h-[8vh] md:h-[5vh]'>
-      <img src={Logo} alt='logo' className='h-[50px]' />
+    <nav className='sticky top-0 bg-white flex justify-between sm:justify-around px-3 mt-2 sm:px-0 items-center mb-5 md:mb-0 h-[8vh] md:h-[5vh]'>
+      <Link to='/'>
+        <img src={Logo} alt='logo' className='h-[50px]' />
+      </Link>
+
 
       {/* Desktop */}
       <ul className='hidden sm:flex gap-5 items-center'>
