@@ -30,8 +30,8 @@ const Navbar = () => {
         {toggle ? <AiOutlineClose size={25} onClick={() => setToggle((prev) => !prev)} /> : <AiOutlineMenu size={25} onClick={() => setToggle((prev) => !prev)} />}
         <ul className={`${toggle ? 'flex' : 'hidden'} flex-col absolute right-0 pr-3`}>
           {navbar.map((n, i) => (
-            <li>
-              <Link to={n.id}>{n.title}</Link>
+            <li key={i}>
+              <Link key={i} to={n.id}>{n.title}</Link>
             </li>
           ))}
         </ul>

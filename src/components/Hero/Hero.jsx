@@ -17,7 +17,7 @@ const Hero = () => (
       </div>
 
     </div>
-    <img src={memoji} alt='Facu Perez Brizuela' className='h-[100%] max-h-[300px] xl:max-h-[400px] object-contain grad' />
+    <img src={memoji} alt='Facu Perez Brizuela' className='h-[100%] max-h-[250px] xl:max-h-[300px] object-contain grad' />
 
   </section>
 )
