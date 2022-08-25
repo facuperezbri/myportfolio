@@ -9,7 +9,7 @@ const Skills = () => {
         {
           skills.map((s, i) => (
             <div className='flex flex-col items-center justify-center gap-10'>
-              <img className='w-[100px] h-[100px] object-contain hover:scale-110 duration-200' src={s.icon} alt={s.title} key={i} />
+              <img className='w-[100px] h-[100px] object-contain hover:-translate-y-2 duration-200' src={s.icon} alt={s.title} key={i} />
               < p > {s.title}</ p>
             </ div>
           ))

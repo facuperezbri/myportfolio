@@ -33,7 +33,7 @@ const Navbar = () => {
         <ul className={`${toggle ? 'flex' : 'hidden'} flex-col absolute right-0 pr-3`}>
           {navbar.map((n, i) => (
             <li key={i}>
-              <Link key={i} to={n.id}>{n.title}</Link>
+              <a className='' href={`#${n.id}`}>{n.title}</a>
             </li>
           ))}
         </ul>
