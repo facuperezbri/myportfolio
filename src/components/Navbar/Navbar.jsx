@@ -11,17 +11,16 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false)
 
   return (
-    <nav className='sticky top-0 bg-white flex justify-between sm:justify-around px-3 mt-2 sm:px-0 items-center mb-5 md:mb-0 h-[8vh] md:h-[5vh]'>
-      <Link to='/'>
+    <nav id='nav' className='sticky top-0 bg-white flex justify-between sm:justify-around px-3 mt-2 sm:px-0 items-center mb-5 md:mb-0 h-[8vh] md:h-[5vh]'>
+      <a href="# ">
         <img src={Logo} alt='logo' className='h-[50px]' />
-      </Link>
-
+      </a>
 
       {/* Desktop */}
       <ul className='hidden sm:flex gap-5 items-center'>
         {navbar.map((n, i) => (
-          <li className='hover:-translate-y-1 duration-300 font-thin'>
-            <a className='' href={n.id}>{n.title}</a>
+          <li key={i} className='hover:-translate-y-1 duration-300 font-thin'>
+            <a className='' href={`#${n.id}`}>{n.title}</a>
           </li>
         ))}
         <Button className={'bg-black text-white'}><a href='mailto:facundo.perez.brizuela@gmail.com'>Contact Me</a></Button>

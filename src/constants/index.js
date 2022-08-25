@@ -1,6 +1,6 @@
 const navbar = [
   {
-    id: '/',
+    id: '',
     title: 'Home',
   },
   {
@@ -17,6 +17,34 @@ const navbar = [
   },
 ]
 
+const projects = [
+  {
+    title: 'API Food',
+    github: '2',
+    deploy: '2',
+    image: '2',
+    description: '2',
+    technologies: []
+  },
+  {
+    title: 'API Food',
+    github: '2',
+    deploy: '2',
+    image: '2',
+    description: '2',
+    technologies: []
+  },
+]
+
+const skills = [
+  {
+    title: 'Javascript',
+    image: '2'
+  },
+]
+
 export {
-  navbar
+  navbar,
+  projects,
+  skills
 }

@@ -4,7 +4,7 @@ import Button from '../ComponentsUI/Button'
 import memoji from '../../assets/memoji.png'
 
 const Hero = () => (
-  <section className='h-[100%] w-[100vw] max-w-full flex flex-col justify-around ss:justify-between text-center gap-10 xxs:gap-16 xs:gap-12 md:gap-10'>
+  <section id='hero' className='h-[100%] w-[100vw] max-w-full flex flex-col justify-around ss:justify-between text-center gap-10 xxs:gap-16 xs:gap-12 md:gap-10'>
     <div>
       <p className="text-[40px]">👋🏼</p>
       <p className='font-thin sm:text-[20px]'>my name is Facu and I'm a</p>
