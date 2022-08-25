@@ -6,7 +6,7 @@ import { FaLinkedinIn, FaGithub } from 'react-icons/fa'
 const About = () => {
   return (
     <section id='about' className='flex flex-col justify-center items-center mb-5 mt-20 '>
-      <h2 className='font-bold text-[60px] sm:text-[100px]'>About</h2>
+      <h2 className='font-bold text-[60px] sm:text-[100px] mb-10'>About</h2>
       <div className='flex flex-col lg:flex-row items-center gap-10 max-w-[300px] lg:max-w-[1000px] sm:max-w-[600px]'>
         <div className='flex flex-col-reverse justify-evenly items-center gap-5'>
           <div className='flex gap-10'>
