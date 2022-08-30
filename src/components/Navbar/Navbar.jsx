@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { navbar } from '../../constants'
 import Button from '../ComponentsUI/Button'
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
 
 import Logo from '../../assets/FACU.png'
 

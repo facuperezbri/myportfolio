@@ -1,3 +1,10 @@
+import mercadolibre from '../assets/projects/mercadolibre.png'
+import calculator from '../assets/projects/calculator.png'
+import wallet from '../assets/projects/wallet.png'
+import turnit from '../assets/projects/turnit.png'
+import { FaReact, FaNodeJs, FaFigma } from 'react-icons/fa'
+import { SiTailwindcss, SiExpress, SiPrisma, SiFirebase } from 'react-icons/si'
+
 const navbar = [
   {
     id: '',
@@ -19,21 +26,34 @@ const navbar = [
 
 const projects = [
   {
-    title: 'API Food',
-    github: 'https://github.com/facuperezbri/henry-pi-food',
-    deploy: '2',
-    image: '2',
-    description: '2',
-    technologies: []
+    title: 'Mercado Libre Clone',
+    github: 'https://github.com/facuperezbri/meli-practice-client',
+    deploy: 'https://meli-practice-client.vercel.app/',
+    image: mercadolibre,
+    technologies: [<FaReact color='#61DBFB' size={25} />, <FaNodeJs color='#8CC84B' size={25} />, <SiExpress size={25} />, <SiTailwindcss color='#37BDF8' size={25} />]
   },
   {
-    title: 'API Food',
-    github: '2',
-    deploy: '2',
-    image: '2',
-    description: '2',
-    technologies: []
+    title: 'Apple-stlye calculator',
+    github: 'https://github.com/facuperezbri/apple-calculator',
+    deploy: 'https://apple-calculator-nu.vercel.app/',
+    image: calculator,
+    technologies: [<FaReact color='#61DBFB' size={25} />, <SiTailwindcss color='#37BDF8' size={25} />]
   },
+  {
+    title: 'Wallet',
+    github: 'https://github.com/facuperezbri/henry-pf-client',
+    deploy: 'https://henry-pf-client.vercel.app/',
+    image: wallet,
+    technologies: [<FaReact color='#61DBFB' size={25} />, <FaNodeJs color='#8CC84B' size={25} />, <SiExpress size={25} />, <SiPrisma size={25} />, <SiTailwindcss color='#37BDF8' size={25} />, <SiFirebase size={25} />]
+  },
+  {
+    title: 'Turn it Case Study',
+    github: null,
+    deploy: 'https://www.behance.net/gallery/133000477/Turnit-Diseno-UXUI',
+    image: turnit,
+    technologies: [<FaFigma size={25} />]
+  },
+
 ]
 
 const skills = [
