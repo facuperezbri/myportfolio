@@ -21,7 +21,7 @@ const Hero = () => (
         currently based in Mendoza, Argentina.
       </p>
       <div className="flex gap-3 justify-center mt-10 md:mt-3">
-        <Link to={"projects"}>
+        <Link to={"#projects"}>
           <Button className={"bg-black text-white"}>My projects</Button>
         </Link>
         <Button>
