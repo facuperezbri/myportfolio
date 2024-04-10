@@ -1,7 +1,7 @@
 import React from "react";
 
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import profile from "../../assets/profile.png";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 const About = () => {
   return (
@@ -51,6 +51,16 @@ const About = () => {
             passionate about and completed an intensive bootcamp of +800 hours
             in 4 months, graduating with solid knowledge of Javascript, React,
             Redux, SQL, PostgreSQL, Node.js and Express.
+          </p>
+          <p className="font-light">
+            Today I work as a Ssr. Software Engineer at Galileo (former
+            Technisys), part of SoFi. I'm in charge of the development for Banco
+            Patagonia, an important bank in Argentina.
+          </p>
+
+          <p className="font-light">
+            We develop using React, Redux, Redux-Saga and Styled components,
+            using agile methologies.
           </p>
           <p className="font-light">
             In my free time I enjoy playing drums and guitar.
