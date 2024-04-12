@@ -38,7 +38,7 @@ const projects = [
     ],
   },
   {
-    title: "Apple-stlye calculator",
+    title: "Apple-style calculator",
     github: "https://github.com/facuperezbri/apple-calculator",
     deploy: "https://apple-calculator-nu.vercel.app/",
     image: calculator,
