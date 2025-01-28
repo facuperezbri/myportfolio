@@ -21,7 +21,7 @@ const Hero = () => (
       </p>
       <div className="flex gap-3 justify-center mt-10 md:mt-3">
         <Button className={"bg-black text-white"}>
-          <a href={"#projects"}>My projects</a>
+          <a href={"#skills"}>My skills</a>
         </Button>
         <Button>
           <a href="mailto:facundo.perez.brizuela@gmail.com">Contact Me</a>

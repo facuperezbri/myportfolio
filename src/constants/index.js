@@ -14,10 +14,10 @@ const navbar = [
     id: "about",
     title: "About",
   },
-  {
-    id: "projects",
-    title: "Projects",
-  },
+  // {
+  //   id: "projects",
+  //   title: "Projects",
+  // },
   {
     id: "skills",
     title: "Skills",

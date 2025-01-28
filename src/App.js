@@ -1,16 +1,15 @@
-import React from 'react'
+import React from "react";
 
-import { About, Hero, Navbar, Projects, Skills } from './components'
+import { About, Hero, Navbar, Skills } from "./components";
 
 const App = () => (
   <>
     <Navbar />
     <Hero />
     <About />
-    <Projects />
+    {/* <Projects /> */}
     <Skills />
   </>
-)
+);
 
-
-export default App
+export default App;
