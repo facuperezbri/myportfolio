@@ -61,7 +61,7 @@ export const TerminalOutput = ({ output, theme }: TerminalOutputProps) => {
     <div 
       ref={outputRef}
       className="mb-2 whitespace-pre-wrap font-mono"
-      style={{ color: theme.text }}
+      style={{ color: theme.accent || theme.prompt || '#FF8C42' }}
     >
       {output.content}
     </div>
