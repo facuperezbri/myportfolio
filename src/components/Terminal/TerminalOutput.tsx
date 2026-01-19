@@ -9,6 +9,7 @@ interface TerminalOutputProps {
   theme: {
     text: string
     accent?: string
+    prompt?: string
     error?: string
     ai?: string
     muted?: string

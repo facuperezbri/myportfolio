@@ -118,7 +118,8 @@ export const useTerminal = () => {
         timestamp: Date.now(),
       }])
       if (aiQueryCallback) {
-        setTimeout(() => aiQueryCallback(question), 100)
+        const callback = aiQueryCallback
+        setTimeout(() => callback(question), 100)
       }
       return
     }
