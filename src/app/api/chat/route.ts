@@ -2,10 +2,6 @@ import { NextRequest } from 'next/server'
 import OpenAI from 'openai'
 import { systemPrompt } from '@/lib/systemPrompt'
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-})
-
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>()
 const RATE_LIMIT_WINDOW = 60 * 1000
 const MAX_REQUESTS_PER_WINDOW = 10
@@ -95,6 +91,7 @@ export async function POST(req: NextRequest) {
       )
     }
 
+    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
     const completion = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       messages: [
