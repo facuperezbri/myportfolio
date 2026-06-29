@@ -1,5 +1,4 @@
-import type { Locale } from '@/i18n/config'
-import { locales } from '@/i18n/config'
+import { resolveLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n'
 import { NavBar } from '@/components/portfolio/NavBar'
 import { Hero } from '@/components/portfolio/Hero'
@@ -14,9 +13,7 @@ export default async function Page({
   params: Promise<{ lang: string }>
 }) {
   const { lang } = await params
-  const locale: Locale = locales.includes(lang as Locale)
-    ? (lang as Locale)
-    : 'en'
+  const locale = resolveLocale(lang)
   const dict = getDictionary(locale)
 
   return (
@@ -28,7 +25,7 @@ export default async function Page({
         <About dict={dict} lang={locale} />
         <Contact dict={dict} />
       </main>
-      <Footer />
+      <Footer dict={dict} />
     </>
   )
 }

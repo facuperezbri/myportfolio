@@ -1,8 +1,18 @@
 import type { Metadata } from 'next'
+import { IBM_Plex_Mono } from 'next/font/google'
 import type { Locale } from '@/i18n/config'
-import { locales } from '@/i18n/config'
+import { locales, resolveLocale } from '@/i18n/config'
 import { getDictionary } from '@/i18n'
+import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import '../globals.css'
+
+const ibmPlexMono = IBM_Plex_Mono({
+  weight: ['400', '500', '600'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-ibm-plex-mono',
+})
 
 export async function generateMetadata({
   params,
@@ -10,7 +20,7 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>
 }): Promise<Metadata> {
   const { lang } = await params
-  const locale = locales.includes(lang as Locale) ? (lang as Locale) : 'en'
+  const locale = resolveLocale(lang)
   const dict = getDictionary(locale)
 
   return {
@@ -54,11 +64,15 @@ export default async function LangLayout({
   params: Promise<{ lang: string }>
 }) {
   const { lang } = await params
-  const locale = locales.includes(lang as Locale) ? (lang as Locale) : 'en'
+  const locale: Locale = resolveLocale(lang)
 
   return (
-    <html lang={locale}>
-      <body className="antialiased">{children}</body>
+    <html lang={locale} className={ibmPlexMono.variable}>
+      <body className="antialiased">
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </body>
     </html>
   )
 }
