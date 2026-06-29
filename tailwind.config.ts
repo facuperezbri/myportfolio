@@ -25,6 +25,17 @@ const config: Config = {
           cyan: '#06B6D4',
           muted: '#4B5563',
         },
+        p: {
+          bg: '#0A0A0F',
+          surface: '#111118',
+          border: '#1E1E2E',
+          text: '#F0F0F5',
+          muted: '#6B6B80',
+          accent: '#FF8C42',
+          purple: '#8B5CF6',
+          green: '#10B981',
+          red: '#EF4444',
+        },
       },
       animation: {
         'cursor-blink': 'blink 1s infinite',

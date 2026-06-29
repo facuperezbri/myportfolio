@@ -10,20 +10,23 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
-  height: 100%;
-  overflow: hidden;
+  min-height: 100%;
 }
 
 body {
   font-family: 'IBM Plex Mono', monospace;
-  background-color: #1A1B23;
-  color: #E5E7EB;
+  background-color: #0A0A0F;
+  color: #F0F0F5;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -31,10 +34,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(229, 231, 235, 0.3);
-  border-radius: 4px;
+  background: rgba(110, 110, 128, 0.3);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(229, 231, 235, 0.5);
+  background: rgba(110, 110, 128, 0.5);
 }
