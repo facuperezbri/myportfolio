@@ -1,14 +1,22 @@
-export function Footer() {
+import { Container } from '@/components/ui/Container'
+import type { Dictionary } from '@/i18n'
+
+interface FooterProps {
+  dict: Dictionary
+}
+
+export function Footer({ dict }: FooterProps) {
+  const year = new Date().getFullYear()
   return (
     <footer className="py-8 px-6 border-t border-p-border">
-      <div className="max-w-3xl mx-auto flex items-center justify-between">
-        <span className="font-mono text-xs text-p-muted/50">
-          © 2025 Facundo Pérez Brizuela
+      <Container className="flex items-center justify-between">
+        <span className="font-mono text-xs text-p-muted">
+          <span aria-hidden="true">©</span> {year} Facundo Pérez Brizuela
         </span>
-        <span className="font-mono text-xs text-p-muted/30">
-          Mendoza, AR
+        <span className="font-mono text-xs text-p-muted">
+          {dict.footer.location}
         </span>
-      </div>
+      </Container>
     </footer>
   )
 }

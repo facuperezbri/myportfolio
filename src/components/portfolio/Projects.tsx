@@ -1,10 +1,13 @@
-import type { Dictionary } from '@/i18n'
-import type { Locale } from '@/i18n/config'
+import { Section } from '@/components/ui/Section'
+import { SectionHeading } from '@/components/ui/SectionHeading'
+import { ExternalLink } from '@/components/ui/ExternalLink'
 import {
   portfolioProjects,
   legacyProjects,
   type PortfolioProject,
 } from '@/constants/portfolioData'
+import type { Dictionary } from '@/i18n'
+import type { Locale } from '@/i18n/config'
 
 interface ProjectsProps {
   dict: Dictionary
@@ -19,9 +22,9 @@ function StatusBadge({
   dict: Dictionary
 }) {
   const colorMap: Record<PortfolioProject['status'], string> = {
-    released: '#10B981',
-    in_development: '#FF8C42',
-    private: '#6B6B80',
+    released: 'var(--color-p-green)',
+    in_development: 'var(--color-p-accent)',
+    private: 'var(--color-p-muted)',
   }
   const color = colorMap[status]
   const label = dict.status[status]
@@ -31,8 +34,8 @@ function StatusBadge({
       className="font-mono text-xs px-2 py-0.5 border"
       style={{
         color,
-        borderColor: `${color}40`,
-        backgroundColor: `${color}10`,
+        borderColor: `color-mix(in srgb, ${color} 25%, transparent)`,
+        backgroundColor: `color-mix(in srgb, ${color} 6%, transparent)`,
       }}
     >
       {label}
@@ -75,7 +78,7 @@ function ProjectCard({
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="font-mono text-xs text-p-muted/50 border border-p-border/50 px-1.5 py-0.5"
+              className="font-mono text-xs text-p-muted border border-p-border px-1.5 py-0.5"
             >
               {tag}
             </span>
@@ -84,25 +87,21 @@ function ProjectCard({
 
         <div className="flex items-center gap-4 flex-shrink-0">
           {project.github && (
-            <a
+            <ExternalLink
               href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
               className="font-mono text-xs text-p-muted hover:text-p-text transition-colors"
             >
-              github ↗
-            </a>
+              github
+            </ExternalLink>
           )}
           {project.demo && (
-            <a
+            <ExternalLink
               href={project.demo}
-              target="_blank"
-              rel="noopener noreferrer"
               className="font-mono text-xs hover:text-p-text transition-colors"
-              style={{ color: project.accentColor }}
+              style={{ color: project.accentColor } as React.CSSProperties}
             >
-              demo ↗
-            </a>
+              demo
+            </ExternalLink>
           )}
         </div>
       </div>
@@ -115,37 +114,31 @@ export function Projects({ dict, lang }: ProjectsProps) {
   const others = portfolioProjects.filter((p) => !p.featured)
 
   return (
-    <section id="projects" className="py-24 px-6 border-t border-p-border">
-      <div className="max-w-3xl mx-auto">
-        <p className="font-mono text-xs text-p-accent tracking-widest uppercase mb-10">
-          {dict.sections.projects}
-        </p>
+    <Section id="projects">
+      <SectionHeading>{dict.sections.projects}</SectionHeading>
 
-        <div className="flex flex-col gap-4">
-          {featured && (
-            <ProjectCard project={featured} dict={dict} lang={lang} />
-          )}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {others.map((p) => (
-              <ProjectCard key={p.id} project={p} dict={dict} lang={lang} />
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-12 pt-8 border-t border-p-border/50 flex flex-wrap gap-x-6 gap-y-3">
-          {legacyProjects.map((p) => (
-            <a
-              key={p.title}
-              href={p.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-mono text-xs text-p-muted/50 hover:text-p-muted transition-colors"
-            >
-              {p.title} ↗
-            </a>
+      <div className="flex flex-col gap-4">
+        {featured && (
+          <ProjectCard project={featured} dict={dict} lang={lang} />
+        )}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {others.map((p) => (
+            <ProjectCard key={p.id} project={p} dict={dict} lang={lang} />
           ))}
         </div>
       </div>
-    </section>
+
+      <div className="mt-12 pt-8 border-t border-p-border flex flex-wrap gap-x-6 gap-y-3">
+        {legacyProjects.map((p) => (
+          <ExternalLink
+            key={p.title}
+            href={p.url}
+            className="font-mono text-xs text-p-muted hover:text-p-text transition-colors"
+          >
+            {p.title}
+          </ExternalLink>
+        ))}
+      </div>
+    </Section>
   )
 }
