@@ -1,0 +1,29 @@
+interface ExternalLinkProps {
+  href: string
+  children: React.ReactNode
+  className?: string
+  style?: React.CSSProperties
+  /** Show the ↗ arrow after the content (default: true) */
+  arrow?: boolean
+}
+
+export function ExternalLink({
+  href,
+  children,
+  className,
+  style,
+  arrow = true,
+}: ExternalLinkProps) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={className}
+      style={style}
+    >
+      {children}
+      {arrow && <span aria-hidden="true"> ↗</span>}
+    </a>
+  )
+}
