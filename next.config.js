@@ -3,6 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
 
   async headers() {
+    const isDev = process.env.NODE_ENV !== 'production'
+
     return [
       {
         source: '/(.*)',
@@ -15,7 +17,9 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com",
+              // React's dev-mode debugging (callstack reconstruction, Fast Refresh)
+              // needs eval() — never enabled in production.
+              `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''} https://va.vercel-scripts.com`,
               "style-src 'self' 'unsafe-inline'",
               "font-src 'self' data:",
               "img-src 'self' data:",

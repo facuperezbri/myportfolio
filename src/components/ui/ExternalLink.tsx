@@ -1,9 +1,11 @@
+import { ExternalArrowIcon } from './icons'
+
 interface ExternalLinkProps {
   href: string
   children: React.ReactNode
   className?: string
   style?: React.CSSProperties
-  /** Show the ↗ arrow after the content (default: true) */
+  /** Show the external-link glyph after the content (default: true) */
   arrow?: boolean
 }
 
@@ -23,7 +25,9 @@ export function ExternalLink({
       style={style}
     >
       {children}
-      {arrow && <span aria-hidden="true"> ↗</span>}
+      {arrow && (
+        <ExternalArrowIcon className="inline-block w-3 h-3 ml-1 -mt-0.5 align-middle" />
+      )}
     </a>
   )
 }

@@ -1,19 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  /* Typography */
-  --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
+  /* Typography — Space Grotesk carries structure and prose, Space Mono
+     carries every tabular figure, date, and status code (real tabulation,
+     not a technical costume). */
+  --font-sans: var(--font-space-grotesk), 'Space Grotesk', ui-sans-serif, sans-serif;
+  --font-mono: var(--font-space-mono), 'Space Mono', ui-monospace, monospace;
+  --font-display: var(--font-fraunces), 'Fraunces', ui-serif, serif;
 
-  /* Palette */
-  --color-p-bg: #0A0A0F;
-  --color-p-surface: #111118;
-  --color-p-border: #1E1E2E;
-  --color-p-text: #F0F0F5;
-  --color-p-muted: #8A8A9E;
-  --color-p-accent: #FF8C42;
-  --color-p-purple: #8B5CF6;
-  --color-p-green: #10B981;
-  --color-p-red: #EF4444;
+  /* Palette — The Daily Close: cream ledger paper by day, a cooler paper
+     for the night ledger (Projects), ink navy type, one brass accent, and
+     an honest green/amber/slate stamp system. */
+  --color-p-bg: #F4F0E4;
+  --color-p-bg-night: #E7ECED;
+  --color-p-rule: #D6CDAF;
+  --color-p-rule-night: #C4D0D2;
+  --color-p-ink: #17233C;
+  --color-p-muted: #4B5468;
+  --color-p-accent: #835310;
+  --color-p-green: #1E5C3C;
+  --color-p-amber: #8C5A16;
+  --color-p-slate: #4B5468;
 }
 
 @layer base {
@@ -28,7 +35,11 @@
 
   body {
     background-color: var(--color-p-bg);
-    color: var(--color-p-text);
+    color: var(--color-p-ink);
+  }
+
+  .font-mono {
+    font-variant-numeric: tabular-nums lining-nums;
   }
 
   :focus-visible {
@@ -36,8 +47,13 @@
     outline-offset: 2px;
   }
 
+  ::selection {
+    background-color: var(--color-p-ink);
+    color: var(--color-p-bg);
+  }
+
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
@@ -45,11 +61,45 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: rgba(110, 110, 128, 0.3);
-    border-radius: 3px;
+    background: color-mix(in srgb, var(--color-p-ink) 25%, transparent);
+    border-radius: 0;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(110, 110, 128, 0.5);
+    background: color-mix(in srgb, var(--color-p-ink) 40%, transparent);
+  }
+}
+
+@keyframes stamp-down {
+  0% {
+    transform: translateY(-8px) scale(1.2);
+  }
+  55% {
+    transform: translateY(1px) scale(0.96);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes stamp-down-tilt {
+  0% {
+    transform: translateY(-8px) scale(1.2) rotate(0deg);
+  }
+  55% {
+    transform: translateY(1px) scale(0.96) rotate(-2deg);
+  }
+  100% {
+    transform: translateY(0) scale(1) rotate(-1deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }

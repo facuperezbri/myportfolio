@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-08T00:00:00Z",
+  "title": "Design System: Facundo Pérez Brizuela — Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "ledger-paper": { "role": "neutral", "displayName": "Ledger Paper", "canonical": "#F4F0E4", "tonalRamp": ["#362E16", "#655629", "#917B3B", "#B89E51", "#CAB77D", "#DCCFA8", "#EAE3CC", "#F8F5ED"] },
+      "ledger-paper-night": { "role": "neutral", "displayName": "Ledger Paper Night", "canonical": "#E7ECED", "tonalRamp": ["#212A2C", "#3D4E52", "#577075", "#739096", "#96ACB0", "#B9C8CB", "#D6DFE0", "#F0F3F4"] },
+      "hairline-rule": { "role": "neutral", "displayName": "Hairline Rule", "canonical": "#D6CDAF", "tonalRamp": ["#332D1A", "#5E5430", "#877845", "#AC9A5D", "#C1B386", "#D6CCAE", "#E7E1D0", "#F6F4EE"] },
+      "hairline-rule-night": { "role": "neutral", "displayName": "Hairline Rule Night", "canonical": "#C4D0D2", "tonalRamp": ["#212A2B", "#3E4E51", "#587074", "#749095", "#97ACB0", "#BAC8CA", "#D6DFE0", "#F1F3F4"] },
+      "ink-navy": { "role": "neutral", "displayName": "Ink Navy", "canonical": "#17233C", "tonalRamp": ["#152037", "#283C67", "#395693", "#4E71BB", "#7A95CC", "#A7B8DD", "#CBD6EB", "#EDF0F8"] },
+      "muted-slate": { "role": "neutral", "displayName": "Muted Slate", "canonical": "#4B5468", "tonalRamp": ["#20242C", "#3C4353", "#556077", "#717D98", "#949EB2", "#B8BECC", "#D6D9E1", "#F0F1F4"] },
+      "brass-accent": { "role": "primary", "displayName": "Brass Accent", "canonical": "#835310", "tonalRamp": ["#442B08", "#7F5110", "#B67316", "#E49425", "#EBAF5B", "#F2CA92", "#F7E0BF", "#FCF4E8"] },
+      "stamp-green": { "role": "tertiary", "displayName": "Stamp Green", "canonical": "#1E5C3C", "tonalRamp": ["#133A26", "#236C46", "#329A64", "#46C383", "#75D2A2", "#A3E1C1", "#C9EDDB", "#ECF9F2"] },
+      "stamp-amber": { "role": "tertiary", "displayName": "Stamp Amber", "canonical": "#8C5A16", "tonalRamp": ["#422B0A", "#7B4F13", "#B0711C", "#DE922B", "#E6AD60", "#EEC995", "#F5DFC1", "#FCF4E9"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero H1 only — the statement's title." },
+      "headline": { "displayName": "Headline", "purpose": "SectionHeading H2s and the Contact lede." },
+      "title": { "displayName": "Title", "purpose": "LedgerRow H3 titles — project titles and job roles." },
+      "body": { "displayName": "Body", "purpose": "Bio paragraphs, project/role descriptions, Contact subheading." },
+      "label": { "displayName": "Label / Mono", "purpose": "Dates, ledger index numbers, tags, status-stamp text, nav links, the FPBR wordmark — genuinely tabular or discrete content only." }
+    },
+    "motion": [
+      { "name": "stamp-down", "value": "translateY(-8px) scale(1.2) -> translateY(1px) scale(0.96) [55%] -> translateY(0) scale(1); 0.4s cubic-bezier(0.16,1,0.3,1)", "purpose": "Default settle-in for a StatusStamp the first time it scrolls into view (IntersectionObserver, threshold 0.6). No rotation." },
+      { "name": "stamp-down-tilt", "value": "translateY(-8px) scale(1.2) rotate(0deg) -> translateY(1px) scale(0.96) rotate(-2deg) [55%] -> translateY(0) scale(1) rotate(-1deg); 0.55s cubic-bezier(0.16,1,0.3,1), 0.2s delay", "purpose": "One-time entrance for the Hero CTA only — the system's single deliberate tilt gesture. Never reused elsewhere." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button (Hero CTA)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one CTA in the system: brass border and label at rest, fills solid brass with paper-colored text on hover, plays the one-time stamp-tilt entrance.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#projects\">View projects<svg class=\"ds-btn-primary__arrow\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M2.5 8h11M9 3.5 13.5 8 9 12.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font-space-mono), 'Space Mono', ui-monospace, monospace; font-size: 0.875rem; color: #835310; border: 2px solid #835310; padding: 0.625rem 1.25rem; border-radius: 0; background: transparent; transition: background-color 0.2s, color 0.2s; animation: ds-stamp-down-tilt 0.55s cubic-bezier(0.16,1,0.3,1) 0.2s both; } .ds-btn-primary:hover, .ds-btn-primary:focus-visible { background: #835310; color: #F4F0E4; } .ds-btn-primary:focus-visible { outline: 2px solid #835310; outline-offset: 2px; } .ds-btn-primary__arrow { width: 14px; height: 14px; transition: transform 0.2s; } .ds-btn-primary:hover .ds-btn-primary__arrow { transform: translateX(2px); } @keyframes ds-stamp-down-tilt { 0% { transform: translateY(-8px) scale(1.2) rotate(0deg); } 55% { transform: translateY(1px) scale(0.96) rotate(-2deg); } 100% { transform: translateY(0) scale(1) rotate(-1deg); } }"
+    },
+    {
+      "name": "Tag Chip",
+      "kind": "chip",
+      "refersTo": "chip-tag",
+      "description": "Hairline-bordered mono label for stack/tech tags. No fill, no radius, tone-matched border to its section.",
+      "html": "<span class=\"ds-chip-tag\">TypeScript</span>",
+      "css": ".ds-chip-tag { display: inline-block; font-family: var(--font-space-mono), 'Space Mono', ui-monospace, monospace; font-size: 0.6875rem; color: #4B5468; border: 1px solid #D6CDAF; padding: 0.125rem 0.375rem; border-radius: 0; }"
+    },
+    {
+      "name": "Status Stamp — Released",
+      "kind": "custom",
+      "refersTo": "status-stamp-released",
+      "description": "The signature status component: a small tinted-tone chip mapped 1:1 to the real project/role status. Settles in once on scroll with the untilted stamp-down keyframe. Amber (in_development) and slate (private) are the same shape with stamp-amber / muted-slate swapped in.",
+      "html": "<span class=\"ds-status-stamp ds-status-stamp--released\">Reconciled</span>",
+      "css": ".ds-status-stamp { display: inline-block; font-family: var(--font-space-mono), 'Space Mono', ui-monospace, monospace; font-size: 0.6875rem; letter-spacing: 0.025em; text-transform: uppercase; padding: 0.125rem 0.5rem; border-radius: 0; border: 1px solid; animation: ds-stamp-down 0.4s cubic-bezier(0.16,1,0.3,1); } .ds-status-stamp--released { color: #1E5C3C; border-color: rgba(30,92,60,0.35); background: rgba(30,92,60,0.07); } .ds-status-stamp--pending { color: #8C5A16; border-color: rgba(140,90,22,0.35); background: rgba(140,90,22,0.07); } .ds-status-stamp--restricted { color: #4B5468; border-color: rgba(75,84,104,0.35); background: rgba(75,84,104,0.07); } @keyframes ds-stamp-down { 0% { transform: translateY(-8px) scale(1.2); } 55% { transform: translateY(1px) scale(0.96); } 100% { transform: translateY(0) scale(1); } }"
+    },
+    {
+      "name": "Ledger Row",
+      "kind": "custom",
+      "refersTo": "ledger-row",
+      "description": "The system's substitute for a card: a numbered reference line with a real, order-independent entry number, divided from its neighbors by a hairline top rule (omitted on the first row).",
+      "html": "<div class=\"ds-ledger-row\"><span class=\"ds-ledger-row__index\">02</span><div class=\"ds-ledger-row__content\"><h3 class=\"ds-ledger-row__title\">Port Manager</h3><p class=\"ds-ledger-row__desc\">Native macOS app for managing processes on ports.</p></div></div>",
+      "css": ".ds-ledger-row { display: grid; grid-template-columns: 2.25rem 1fr; gap: 24px; padding: 24px 0; border-top: 1px solid #D6CDAF; } .ds-ledger-row__index { font-family: var(--font-space-mono), 'Space Mono', ui-monospace, monospace; font-size: 0.75rem; color: #4B5468; font-variant-numeric: tabular-nums; padding-top: 4px; } .ds-ledger-row__title { font-family: var(--font-fraunces), Fraunces, ui-serif, serif; font-weight: 600; font-size: 1.125rem; color: #17233C; letter-spacing: -0.025em; margin-bottom: 8px; } .ds-ledger-row__desc { font-family: var(--font-space-grotesk), 'Space Grotesk', ui-sans-serif, sans-serif; color: #4B5468; line-height: 1.625; max-width: 32rem; }"
+    },
+    {
+      "name": "Nav Locale Toggle",
+      "kind": "nav",
+      "refersTo": "nav-locale-chip-active",
+      "description": "Two bordered chips (ES/EN). Active locale: solid ink border and text, aria-current. Inactive: transparent border that reveals the hairline rule on hover.",
+      "html": "<div class=\"ds-nav-locale\"><span class=\"ds-nav-locale__chip ds-nav-locale__chip--active\" aria-current=\"true\">ES</span><a class=\"ds-nav-locale__chip\" href=\"/en\">EN</a></div>",
+      "css": ".ds-nav-locale { display: flex; align-items: center; gap: 4px; font-family: var(--font-space-mono), 'Space Mono', ui-monospace, monospace; font-size: 11px; } .ds-nav-locale__chip { color: #4B5468; border: 1px solid transparent; padding: 0.125rem 0.375rem; border-radius: 0; transition: border-color 0.2s; } .ds-nav-locale__chip:hover { border-color: #D6CDAF; } .ds-nav-locale__chip--active { color: #17233C; border-color: #17233C; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Daily Close",
+    "overview": "The portfolio reads as a bank reconciliation slip, not a hacker terminal: a real financial document a recruiter, peer, or founder can trust on sight. Every project and every job is a numbered ledger line that opens, moves, and closes — a real reference number, a real date, an honest status stamp — never a decorative card or a hero-metric tile. The system is built from cream ledger paper, ink-navy type, exactly one brass accent, and a three-tone green/amber/slate stamp vocabulary that only ever reports the truth of a status enum. It is deliberately flat: no shadow and no rounded corner ships anywhere in the codebase, and separation between elements is always a hairline rule or a shift in paper tone, never a cast shadow.\n\nThe type system carries four distinct voices instead of the two the original direction called for: Fraunces (self-hosted via next/font/google) was added during the finish-review fix round as the display face for every heading-equivalent (Hero H1, SectionHeading H2, LedgerRow H3 titles, the Contact lede), while Space Grotesk narrowed to prose, labels, and nav chrome, and Space Mono stayed reserved for tabular data. --color-p-accent and --color-p-amber were also retuned in that same fix round; both now clear 4.5:1 contrast against both paper tones. This file documents that shipped state, not the two-typeface direction contract that preceded it.",
+    "keyCharacteristics": [
+      "Flat ledger-paper surface: zero box-shadow, zero border-radius, anywhere in the shipped code.",
+      "Two-tone day/night paper system, switched per Section (day is the default; night is reserved for Projects).",
+      "One brass accent, spent only on actionable and iconographic elements, never on body text or a resting fill.",
+      "A three-tone honest status-stamp vocabulary (green / amber / slate) mapped 1:1 to the real ProjectStatus enum.",
+      "A four-voice type system: Fraunces carries every heading-equivalent, Space Grotesk carries prose/labels/nav, Space Mono carries every tabular figure, date, and status code.",
+      "LedgerRow + hairline section rules substitute for cards everywhere content would otherwise be boxed."
+    ],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "Brass Accent is the only accent color in the system. It appears exclusively on actionable or iconographic elements (the CTA, external-link icons, demo/company links) — never on body text, never as a resting fill, and never doubled with a second accent hue.", "section": "colors" },
+      { "name": "The Honest Stamp Rule", "body": "The green/amber/slate trio maps 1:1 to the real ProjectStatus enum (released / in_development / private) and is used nowhere else in the system. A stamp's tone is never chosen for visual variety.", "section": "colors" },
+      { "name": "The Four-Voice Rule", "body": "Fraunces is the only face allowed on the Hero H1, SectionHeading H2s, LedgerRow H3 titles, and the Contact lede. Space Grotesk never carries a heading. Space Mono never carries prose — it is reserved for genuinely tabular or discrete content (dates, indices, tags, status codes, nav chrome), which is why this world's use of monospace is a real tabulation and not a 'technical' costume.", "section": "typography" },
+      { "name": "The Flat Ledger Rule", "body": "No box-shadow ships anywhere in this system. Separation is always a rule line or a paper-tone change.", "section": "elevation" },
+      { "name": "The One Heavy Stroke Rule", "body": "2px borders are reserved for the Hero CTA alone. Every other bordered element — tags, stamps, nav chips, dividers — stays hairline.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do reserve Fraunces for the four heading-equivalent roles (Hero H1, SectionHeading H2, LedgerRow H3 titles, Contact lede); keep every other text run in Space Grotesk or Space Mono.",
+      "Do use Space Mono only for genuinely tabular or discrete content — dates, entry numbers, status codes, tags, nav chrome. This world earns monospace deliberately; it is not a \"technical\" costume, so don't shy away from it for real tabular data.",
+      "Do keep every border square ({rounded.none}) and every depth cue a rule line or a paper-tone shift — never a shadow.",
+      "Do tint status-stamp backgrounds to a 7% wash of their own tone color and keep the three tones mapped 1:1 to real status values.",
+      "Do switch a Section's paper tone (day → night) only as a whole-section decision via the tone prop — never as a background override on a smaller element inside a day section."
+    ],
+    "donts": [
+      "Don't add a card, an icon-plus-heading-plus-text tile, or any boxed/shadowed container — LedgerRow plus Section rules are this system's only content-grouping device.",
+      "Don't put a kicker or eyebrow above a heading — SectionHeading is deliberately built without one; the heading carries its own weight.",
+      "Don't reuse the Hero CTA's stamp-down-tilt keyframe (the -1° tilt) elsewhere; it is a one-time, one-element gesture. Other stamped/animated elements use the untilted stamp-down keyframe.",
+      "Don't introduce a second accent color. Brass Accent is the only accent, reserved for actionable elements and their icons — never body text, never a resting fill.",
+      "Don't round a corner or add a box-shadow anywhere in this system; it has shipped with zero of either, and that is the point, not an oversight."
+    ]
+  }
+}

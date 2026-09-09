@@ -7,6 +7,8 @@ export interface BilingualText {
 
 export interface PortfolioProject {
   id: string
+  /** Fixed reference number for this ledger line — independent of display order. */
+  entryNo: number
   title: string
   description: BilingualText
   status: ProjectStatus
@@ -15,10 +17,11 @@ export interface PortfolioProject {
   github: string | null
   demo: string | null
   featured: boolean
-  accentColor: string
 }
 
 export interface WorkExperience {
+  /** Fixed reference number for this ledger line — independent of display order. */
+  entryNo: number
   company: string
   role: string
   period: string
@@ -34,6 +37,7 @@ export interface LegacyProject {
 export const portfolioProjects: PortfolioProject[] = [
   {
     id: 'career-ai',
+    entryNo: 1,
     title: 'Career AI Agentic Companion',
     description: {
       es: 'Un companion agentic para acompañar durante todo el proceso de búsqueda laboral. No lista vacantes ni manda CVs en tu nombre: entiende el perfil, los objetivos y el contexto de cada oportunidad para ayudar a tomar mejores decisiones.',
@@ -45,10 +49,10 @@ export const portfolioProjects: PortfolioProject[] = [
     github: null,
     demo: null,
     featured: true,
-    accentColor: '#8B5CF6',
   },
   {
     id: 'port-manager',
+    entryNo: 2,
     title: 'Port Manager',
     description: {
       es: 'App nativa macOS para gestionar procesos en puertos. Muestra qué proceso ocupa cada puerto activo, permite terminarlos con un click y filtra por nombre o número. Construida porque necesitaba la herramienta y no encontré ninguna rápida y simple.',
@@ -60,10 +64,10 @@ export const portfolioProjects: PortfolioProject[] = [
     github: 'https://github.com/facuperezbri',
     demo: null,
     featured: false,
-    accentColor: '#FF8C42',
   },
   {
     id: 'resume-improver',
+    entryNo: 3,
     title: 'Resume Improver',
     description: {
       es: 'Analiza tu CV contra una oferta laboral y sugiere mejoras concretas usando AI. Funciona con tu propia API key de OpenAI — cero datos guardados en el servidor.',
@@ -75,7 +79,6 @@ export const portfolioProjects: PortfolioProject[] = [
     github: null,
     demo: null,
     featured: false,
-    accentColor: '#10B981',
   },
 ]
 
@@ -92,6 +95,7 @@ export const legacyProjects: LegacyProject[] = [
 
 export const workExperience: WorkExperience[] = [
   {
+    entryNo: 1,
     company: 'Galileo · SoFi',
     role: 'Sr. Software Engineer',
     period: 'Sep 2022 — Present',
@@ -102,6 +106,7 @@ export const workExperience: WorkExperience[] = [
     },
   },
   {
+    entryNo: 2,
     company: 'Sistémica',
     role: 'React Native Developer',
     period: 'Mar 2024 — Ene 2025',
@@ -112,6 +117,7 @@ export const workExperience: WorkExperience[] = [
     },
   },
   {
+    entryNo: 3,
     company: 'Henry',
     role: 'Henry Mentor',
     period: 'Nov 2022 — Dic 2023',

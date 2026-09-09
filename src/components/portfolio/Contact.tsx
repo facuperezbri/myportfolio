@@ -1,6 +1,7 @@
 import { Section } from '@/components/ui/Section'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { ExternalLink } from '@/components/ui/ExternalLink'
+import { MailIcon, LinkIcon, BracketsIcon } from '@/components/ui/icons'
 import { contact } from '@/constants/portfolioData'
 import type { Dictionary } from '@/i18n'
 
@@ -13,38 +14,42 @@ export function Contact({ dict }: ContactProps) {
     <Section id="contact">
       <SectionHeading>{dict.sections.contact}</SectionHeading>
 
-      <h2 className="font-mono text-2xl sm:text-3xl font-semibold text-p-text mb-4 leading-tight">
+      <p className="font-display font-semibold text-p-ink text-2xl sm:text-3xl mb-3 tracking-tight">
         {dict.contact.heading}
-      </h2>
-      <p className="font-mono text-xs text-p-muted mb-12 max-w-xs leading-loose">
+      </p>
+      <p className="text-p-muted mb-12 max-w-sm leading-relaxed">
         {dict.contact.subheading}
       </p>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 max-w-sm">
         <a
           href={`mailto:${contact.email}`}
-          className="font-mono text-sm text-p-muted hover:text-p-text transition-colors"
+          className="group flex items-center gap-3 font-mono text-sm text-p-muted hover:text-p-ink transition-colors"
         >
-          <span aria-hidden="true" className="text-p-accent mr-2">→</span>
-          {contact.email}
+          <MailIcon className="w-4 h-4 text-p-accent flex-shrink-0" />
+          <span className="underline decoration-p-rule decoration-1 underline-offset-4 group-hover:decoration-p-ink">
+            {contact.email}
+          </span>
         </a>
         <ExternalLink
           href={contact.linkedin}
-          className="font-mono text-sm text-p-muted hover:text-p-text transition-colors"
           arrow={false}
+          className="group flex items-center gap-3 font-mono text-sm text-p-muted hover:text-p-ink transition-colors"
         >
-          <span aria-hidden="true" className="text-p-accent mr-2">→</span>
-          linkedin.com/in/facuperezbri
-          <span aria-hidden="true"> ↗</span>
+          <LinkIcon className="w-4 h-4 text-p-accent flex-shrink-0" />
+          <span className="underline decoration-p-rule decoration-1 underline-offset-4 group-hover:decoration-p-ink">
+            linkedin.com/in/facuperezbri
+          </span>
         </ExternalLink>
         <ExternalLink
           href={contact.github}
-          className="font-mono text-sm text-p-muted hover:text-p-text transition-colors"
           arrow={false}
+          className="group flex items-center gap-3 font-mono text-sm text-p-muted hover:text-p-ink transition-colors"
         >
-          <span aria-hidden="true" className="text-p-accent mr-2">→</span>
-          github.com/facuperezbri
-          <span aria-hidden="true"> ↗</span>
+          <BracketsIcon className="w-4 h-4 text-p-accent flex-shrink-0" />
+          <span className="underline decoration-p-rule decoration-1 underline-offset-4 group-hover:decoration-p-ink">
+            github.com/facuperezbri
+          </span>
         </ExternalLink>
       </div>
     </Section>
